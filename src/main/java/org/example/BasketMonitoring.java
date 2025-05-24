@@ -14,6 +14,7 @@ public class BasketMonitoring {
         JSONArray lidl_array = new JSONArray();             //declaring a JSONArray for every store to store the products and be able to assign them to a key
         JSONArray kaufland_array = new JSONArray();
         JSONArray profi_array = new JSONArray();
+        JSONArray no_results = new JSONArray();
 
         for (String product_name : basket) {                //going through every product in the basket
 
@@ -26,7 +27,7 @@ public class BasketMonitoring {
                 assert data != null;                                                        //to check that the data is not null
 
                 for (String[] row : data) {                                         //going through every row of the csv in search of the products from the basket
-                    if (Objects.equals(row[1], product_name)) {                     //product_name index is [1], checking if the current row of the csv contains the product in the basket
+                    if (Objects.equals(row[1].strip(), product_name.strip())) {                     //product_name index is [1], strip method is used to remove extra spaces
                         float product_price = Float.parseFloat(row[6]);             //price index is [6]
                         if (min_price == null || product_price < min_price) {
                             min_price = product_price;
@@ -45,10 +46,12 @@ public class BasketMonitoring {
             else if (Objects.equals(product_store, "Profi") && min_price != null) {
                 profi_array.add(product_details);
             }
+            else no_results.add(product_name);
         }
         shopping_list.put("Lidl",lidl_array);                                       //adding the products details to their store/key
         shopping_list.put("Kaufland",kaufland_array);
         shopping_list.put("Profi",profi_array);
+        shopping_list.put("No results found",no_results);
 
         return shopping_list;
     }
