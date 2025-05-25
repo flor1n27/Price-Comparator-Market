@@ -1,6 +1,6 @@
-# Price-Comparator-Market
+# Description
 
-a Java-based application built with **Spring Boot** that allows users to monitor product prices to find the cheapest prices, detect the best discounts, new discounts and receive custom price alerts using data from CSV files. It’s structured for modular clarity and is easily extendable for various price tracking needs.The project follows a standard Maven layout.
+Price-Comparator-Market is a Java-based application built with **Spring Boot** that allows users to monitor product prices to find the cheapest prices, detect the best discounts, new discounts and receive custom price alerts using data from CSV files. It’s structured for modular clarity and is easily extendable for various price tracking needs.The project follows a standard Maven layout.
 
 # Project Structure
 
