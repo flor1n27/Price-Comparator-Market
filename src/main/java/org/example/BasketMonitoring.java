@@ -21,14 +21,16 @@ public class BasketMonitoring {
             Float min_price = null;                         //reassigning the min_price at the start of the loop to reset it for every product
             String product_store = "";
             LinkedHashMap<String, Object> product_details = new LinkedHashMap<>();          //to maintain the order of the product details (keys and values)
+            product_name = CommonUtils.convert_characters(product_name).toLowerCase();      //converting romanian letter (e.g. ă to a) and letter to lower case
 
-            for (String csv_file : CsvReader.stores) {                                      //going through every csv to search for the product and compare the price
+            for (String csv_file : CsvReader.current_week_offers) {                         //going through every csv to search for the product and compare the price
                 List<String[]> data = CsvReader.readAllDataAtOnce(csv_file);                //to read the csv
                 assert data != null;                                                        //to check that the data is not null
 
-                for (String[] row : data) {                                         //going through every row of the csv in search of the products from the basket
-                    if (Objects.equals(row[1].strip(), product_name.strip())) {                     //product_name index is [1], strip method is used to remove extra spaces
-                        float product_price = Float.parseFloat(row[6]);             //price index is [6]
+                for (String[] row : data) {                                                             //going through every row of the csv in search of the products from the basket
+                    String csv_product_name = CommonUtils.convert_characters(row[1]).toLowerCase();
+                    if (csv_product_name.strip().equals(product_name.strip())) {        //product_name index is [1], strip method is used to remove extra spaces
+                        float product_price = Float.parseFloat(row[6]);                 //price index is [6]
                         if (min_price == null || product_price < min_price) {
                             min_price = product_price;
                             product_store = CommonUtils.select_store(csv_file);         //selecting the store based on the name of the csv
@@ -37,7 +39,7 @@ public class BasketMonitoring {
                     }
                 }
             }
-            if (Objects.equals(product_store, "Lidl") && min_price != null) {       //adding the product details to their corresponded store
+            if (Objects.equals(product_store, "Lidl") && min_price != null) {        //adding the product details to their corresponded store
                 lidl_array.add(product_details);
             }
             else if (Objects.equals(product_store, "Kaufland") && min_price != null) {

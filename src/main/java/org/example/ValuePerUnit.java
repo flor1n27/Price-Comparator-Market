@@ -10,13 +10,13 @@ public class ValuePerUnit {
     public static JSONObject get_best_value_per_unit(String user_product){
 
         JSONObject product_data = new JSONObject();
-
-        for (String csv_file : CsvReader.stores) {
+        user_product = CommonUtils.convert_characters(user_product).strip().toLowerCase();
+        for (String csv_file : CsvReader.current_week_offers) {
             List<String[]> data = CsvReader.readAllDataAtOnce(csv_file);
             assert data != null;
 
             for (String[] row : data) {
-                String csv_product = row[1];                                       //index of product_name = 1 in the csv
+                String csv_product = CommonUtils.convert_characters(row[1]).toLowerCase().strip();                                       //index of product_name = 1 in the csv
                 if (Objects.equals(csv_product, user_product)){
 
                     float package_quantity = Float.parseFloat(row[4]);             //index of the package_quantity = 5
