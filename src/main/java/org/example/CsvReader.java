@@ -10,8 +10,10 @@ import java.util.List;
 
 public class CsvReader {
 
-    static String[] stores = {"lidl_2025-05-01.csv", "kaufland_2025-05-01.csv", "profi_2025-05-01.csv"};
-    static String[] stores_discounts = {"lidl_discounts_2025-05-01.csv", "kaufland_discounts_2025-05-01.csv", "profi_discounts_2025-05-22.csv"};
+    static String[] current_week_offers = {"lidl_2025-05-01.csv", "kaufland_2025-05-01.csv", "profi_2025-05-01.csv"};
+    static String[] all_time_offers = {"lidl_2025-05-01.csv", "kaufland_2025-05-01.csv", "profi_2025-05-01.csv","lidl_2025-05-08.csv", "kaufland_2025-05-08.csv", "profi_2025-05-08.csv"};
+    static String[] current_week_discounts = {"lidl_discounts_2025-05-01.csv", "kaufland_discounts_2025-05-25.csv", "profi_discounts_2025-05-24.csv"};
+    static String[] all_time_discounts = {"lidl_discounts_2025-05-01.csv", "kaufland_discounts_2025-05-25.csv", "profi_discounts_2025-05-24.csv","lidl_discounts_2025-05-08.csv", "kaufland_discounts_2025-05-08.csv", "profi_discounts_2025-05-08.csv"};
 
     public static List<String[]> readAllDataAtOnce(String file) {
         try {
