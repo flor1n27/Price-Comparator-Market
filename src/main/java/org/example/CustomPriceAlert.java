@@ -12,15 +12,16 @@ public class CustomPriceAlert {
 
         JSONObject product_data = new JSONObject();     //to store the returned data
 
-        for (String csv_file : CsvReader.stores) {
+        for (String csv_file : CsvReader.current_week_offers) {
             List<String[]> data = CsvReader.readAllDataAtOnce(csv_file);
             assert data != null;
             String store;
+            target_product = CommonUtils.convert_characters(target_product).strip().toLowerCase();
 
             JSONArray data_array = new JSONArray();     //only an array is needed in this case, since here is only 1 product
 
             for (String[] row : data) {
-                String csv_product = row[1];
+                String csv_product = CommonUtils.convert_characters(row[1]).toLowerCase().strip();
                 if (Objects.equals(csv_product, target_product)) {
                     float csv_price = Float.parseFloat(row[6]);
                     store = CommonUtils.select_store(csv_file);
