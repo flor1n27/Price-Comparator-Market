@@ -4,15 +4,15 @@ a Java-based application built with **Spring Boot** that allows users to monitor
 
 # Project Structure
 
-PriceComparatorServer.java: The main entry point of the Spring Boot application.<br>
-PriceComparatorController.java: contains the core logic and handles the endpoints.<br>
-BasketMonitoring.java: handles the user basket and splits the products into a shopping list for price efficiency.<br>
-BestDiscounts.java: compares the data from each csv and returns the products with the highest discount percentage.<br>
-NewDiscounts.java: checks if the data was added at maximum a day ago and returns the products data if the condition is True.<br>
-ValuePerUnit.java: calculates the value of price divided by the quantity. It works for different measurment units, such as: kg, g, piece, ml, L.<br>
-CustomPriceAlert.java: performs a search of the product chosen by the user and returns data based on the price that was set as well by the user.<br>
-CsvReader.java: Reads the data from CSV files and returns it as a String Array, which is then processed row by row.<br>
-CommonUtils.java: contains methods that are used in the other classes: get_csv_date (important for NewDiscounts.java), select_store, get_product_details,get_discounted_product_details<br>
+- PriceComparatorServer.java: The main entry point of the Spring Boot application.<br>
+- PriceComparatorController.java: contains the core logic and handles the endpoints.<br>
+- BasketMonitoring.java: handles the user basket and splits the products into a shopping list for price efficiency.<br>
+- BestDiscounts.java: compares the data from each csv and returns the products with the highest discount percentage.<br>
+- NewDiscounts.java: checks if the data was added at maximum a day ago and returns the products data if the condition is True.<br>
+- ValuePerUnit.java: calculates the value of price divided by the quantity. It works for different measurment units, such as: kg, g, piece, ml, L.<br>
+- CustomPriceAlert.java: performs a search of the product chosen by the user and returns data based on the price that was set as well by the user.<br>
+- CsvReader.java: Reads the data from CSV files and returns it as a String Array, which is then processed row by row.<br>
+- CommonUtils.java: contains methods that are used in the other classes: get_csv_date (important for NewDiscounts.java), select_store, get_product_details,get_discounted_product_details<br>
 
 
 # Tech Stack
