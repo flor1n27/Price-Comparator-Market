@@ -9,7 +9,7 @@ public class BestDiscounts {
 
         Map<String, Float> highest_discounts = new HashMap<>();             //to store the product_name and the discount percentage
 
-        for (String csv_file : CsvReader.stores_discounts) {
+        for (String csv_file : CsvReader.current_week_discounts) {
 
             List<String[]> data = CsvReader.readAllDataAtOnce(csv_file);    //to read the csv data
             assert data != null;                                            //to check that the data is not null

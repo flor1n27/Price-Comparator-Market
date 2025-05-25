@@ -16,7 +16,7 @@ public class NewDiscounts {
         JSONArray kaufland_array = new JSONArray();
         JSONArray profi_array = new JSONArray();
 
-        for (String csv_file : CsvReader.stores_discounts) {                                    //going through each csv from the string array that contains the csv names
+        for (String csv_file : CsvReader.current_week_discounts) {                                    //going through each csv from the string array that contains the csv names
             List<String[]> data = CsvReader.readAllDataAtOnce(csv_file);                        //reading the csv data
             assert data != null;
             LocalDate current_date = LocalDate.now();                                           //getting the current date
