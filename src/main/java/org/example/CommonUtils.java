@@ -63,4 +63,12 @@ public class CommonUtils {
         product_details.put("percentage_of_discount",Float.parseFloat(row[8]));
         return product_details;
     }
+
+    public static String convert_characters(String word){
+        word = word.replace("ă", "a").replace("â", "a")
+                .replace("î", "i").replace("ș", "s").replace("ț", "t")
+                .replace("Ă", "A").replace("Â", "A")
+                .replace("Î", "I").replace("Ș", "S").replace("Ț", "T");
+        return word;
+    }
 }
